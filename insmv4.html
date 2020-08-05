@@ -1,3 +1,4 @@
+<link href="insmv4.css" rel="stylesheet">
 <label>Nom</label> <input type="text"/>
 <label>Prénom</label> <input type="text"/>
 <label>Age</label> <input type="number"/>
@@ -35,37 +36,42 @@ Supérieur <input type="text"/>  Grade <input type="number"/>
     <tr>
         <td><label for="combat">Combat</label></td>
         <td><input type="number" id="combat" name="combat" min="0"></td>
-        <td></td>
+        <td>Agilité</td>
     </tr>
+	<tr>
+		<td><label for="combat_spe">Combat spé.</label><input type="text"></td>
+		<td><input type="number" id="combat_spe" name="combat_spe" min="0"></td>
+		<td>Agilité</td>
+	</tr>
     <tr>
         <td><label for="cac">Corps à corps</label></td>
         <td><input type="number" id="cac" name="cac" min="0"></td>
-        <td></td>
+        <td>Agilité</td>
     </tr>
     <tr>
         <td><label for="defense">Défense</label></td>
         <td><input type="number" id="defense" name="defense" min="0"></td>
-        <td></td>
+        <td>Agilité</td>
     </tr>
     <tr>
         <td><label for="discretion">Discrétion</label></td>
         <td><input type="number" id="discretion" name="discretion" min="0"></td>
-        <td></td>
+        <td>Agilité</td>
     </tr>
     <tr>
         <td><label for="discussion">Discussion</label></td>
         <td><input type="number" id="discussion" name="discussion" min="0"></td>
-        <td></td>
+        <td>Volonté</td>
     </tr>
     <tr>
         <td><label for="enquete">Enquête</label></td>
         <td><input type="number" id="enquete" name="enquete" min="0"></td>
-        <td></td>
+        <td>Foi</td>
     </tr>
     <tr>
         <td><label for="fouille">Fouille</label></td>
         <td><input type="number" id="fouille" name="fouille" min="0"></td>
-        <td></td>
+        <td>Per</td>
     </tr>
     <tr>
         <td><label for="intrusion">Intrusion</label></td>
@@ -80,12 +86,53 @@ Supérieur <input type="text"/>  Grade <input type="number"/>
     <tr>
         <td><label for="seduction">Séduction</label></td>
         <td><input type="number" id="seduction" name="seduction" min="0"></td>
-        <td></td>
+        <td>Présence</td>
     </tr>
     <tr>
         <td><label for="tir">Tir</label></td>
         <td><input type="number" id="tir" name="tir" min="0"></td>
-        <td></td>
+        <td>Perception</td>
+    </tr>
+	<tr>
+		<td><label for="tir_spe">Tir spé.</label><input type="text"></td>
+		<td><input type="number" id="tir_spe" name="tir_spe" min="0"></td>
+		<td>Perception</td>
+	</tr>
+    </tbody>
+</table>
+
+<h2>Talents Exotiques</h2>
+<table>
+	<thead>
+	<tr>
+		<th>Talent</th>
+		<th>Niveau</th>
+		<th>Caractéristique</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+        <td><input type="text"></td>
+        <td><input type="number" min="0"></td>
+        <td><input type="number" min="0"></td>
+    </tr>
+
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="number" min="0"></td>
+        <td><input type="number" min="0"></td>
+    </tr>
+
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="number" min="0"></td>
+        <td><input type="number" min="0"></td>
+    </tr>
+
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="number" min="0"></td>
+        <td><input type="number" min="0"></td>
     </tr>
     </tbody>
 </table>
@@ -101,20 +148,98 @@ Supérieur <input type="text"/>  Grade <input type="number"/>
     </thead>
     <tbody>
     <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
+        <td><label for="acrobatie">Acrobatie</label></td>
+        <td><input type="number" id="acrobatie" name="acrobatie" min="0"></td>
+        <td>Agilité</td>
     </tr>
     <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
+        <td><label for="aisance sociale">Aisance Sociale</label></td>
+        <td><input type="number" id="aisance sociale" name="aisance sociale" min="0"></td>
+        <td>Présence</td>
     </tr>
     <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
+        <td><label for="art">Art<label></td>
+        <td><input type="number" id="art" name="art" min="0"></td>
+        <td>Présence</td>
+    <tr>
+        <td><label for="athletisme">Athlétisme</label></td>
+        <td><input type="number" id="athletisme" name="athletisme" min="0"></td>
+        <td>Force</td>
     </tr>
+    <tr>
+        <td><label for="conduite">Conduite</label></td>
+        <td><input type="number" id="conduite" name="conduite" min="0"></td>
+        <td>Agilité</td>    
+    </tr>
+    <tr>
+        <td><label for="cuture generale">Cuture générale</label></td>
+        <td><input type="number" id="cuture generale" name="cuture generale" min="0"></td>
+        <td></td>           
+    </tr>
+    <tr>
+        <td><label for="informatique">Informatique</label></td>
+        <td><input type="number" id="informatique" name="informatique" min="0"></td>
+        <td></td>     
+    </tr>
+    <tr>
+        <td><label for="intimidation">Intimidation</label></td>
+        <td><input type="number" id="intimidation" name="intimidation" min="0"></td>
+        <td>Force</td>           
+    </tr>
+    <tr>
+        <td><label for="langues">Langues</label></td>
+        <td><input type="number" id="langues" name="langues" min="0"></td>
+        <td></td>                    
+    </tr>
+    <tr>
+        <td><label for="metier">Métier</label></td>
+        <td><input type="number" id="metier" name="metier" min="O"></td>
+        <td></td>                                
+    </tr>
+    <tr>
+        <td><label for="navigation">Navigation</label></td>
+        <td><input type="number" id="navigation" name="navigation" min="0"></td>
+        <td></td>                      
+    </tr>
+    <tr>
+        <td><label for="pilotage">Pilotage</label></td>
+        <td><input type="number" id="Pilotage" name="Pilotage" min="0"></td>
+        <td></td>               
+    </tr>
+    <tr>
+        <td><label for="Savoir Criminel">Savoir Criminel</label></td>
+        <td><input type="number" id="Savoir Criminel" name="Savoir Criminel" min="0"></td>
+        <td></td>                                   
+    </tr>
+    <tr>
+        <td><label for="Savoir d'Espion">Savoir d'Espion</label></td>
+        <td><input type="number" id="Savoir d'Espion" name="Savoir d'Espion" min="0"></td> 
+        <td></td>                                     
+    </tr>
+    <tr>
+        <td><label for="Savoir Militaire">Savoir Militaire</label></td>
+        <td><input type="number" id="Savoir Militaire" name="Savoir Militaire" min="0"></td>
+        <td></td>                                     
+    </tr>
+    <tr>
+        <td><label for="Savoir Occulte">Savoir Occulte</label></td>
+        <td><input type="number" id="Savoir Occulte" name="Savoir Occulte" min="0"></td>
+        <td></td>                                     
+    </tr>
+    <tr>
+        <td><label for="Science">Science</label></td>
+        <td><input type="number" id="Science" name="Science" min="0"></td>
+        <td></td>                                     
+    </tr>
+    <tr>
+        <td><label for="Survie">Survie</label></td>
+        <td><input type="number" id="Survie" name="Survie" min="0"></td>
+        <td></td>                        
+    </tr>
+    <tr>
+        <td><label for="Technique">Technique</label></td>
+        <td><input type="number" id="Technique" name="Technique" min="0"></td>
+        <td></td> 
     </tbody>
 </table>
 
