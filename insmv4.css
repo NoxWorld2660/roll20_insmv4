@@ -10,8 +10,8 @@
 div#all {
 	
 }
-
-div#attributs {
+/*layout des attributs*/
+div.sheet-attributs {
 	list-style-type:none;
 	display:flex;
 	flex-flow:row wrap;
@@ -20,37 +20,55 @@ div#attributs {
 	text-align:center;
 	
 }
-div#attributs div {
+div.sheet-attributs div {
 	display:inline-block;
 	text-align:center;
 	border:1px solid purple;
 	margin:0.3em auto;
 	padding:1em;
 }
-div#attributs div input {
+div.sheet-attributs div input {
 	width:5em;
 }
 
-div#talents {
+/*layout des talents*/
+div.sheet-talents {
 	display:flex;
 	flex-flow:row wrap;
 	width:80%;
 	margin:0 auto;
 }
-div#talents_principaux {
-	display:inline-block;
-	width:50%;
-	border:1px solid #1FEDDD;
-	margin:0 auto;
-	padding:1em;
-	
 
-}
-
-div#talents_secondaires {
+div.sheet-talents_principaux  {
 	display:inline-block;
 	width:50%;
 	border:1px solid #1FEDDD;
 	margin:0 auto;
 	padding:1em;
 }
+
+div.sheet-talents_exotiques {
+	diplay:inline-block;
+}
+
+div.sheet-talents_secondaires {
+	display:inline-block;
+	width:50%;
+	border:1px solid #1FEDDD;
+	margin:0 auto;
+	padding:1em;
+}
+
+div.sheet-flex-col {     
+	display: flex;     
+	flex-flow: row wrap;     
+	justify-content: flex-start;   
+	width:80%;
+	margin:0 auto;
+	border:2px solid green;
+
+}
+div.sheet-flex-col div {
+	display: inline-block;
+	border:2px solid blue;
+  }

@@ -3,21 +3,21 @@
 <div id="all">
 <label>Nom</label> <input type="text"/>
 <label>Prénom</label> <input type="text"/>
-<label>Age</label> <input type="number"/>
+<label>Age</label> <input type="number" step="0.5"/>
 <label>Sexe</label> <input type="text"/>
 
 Identité <input type="text"/>
-Supérieur <input type="text"/>  Grade <input type="number"/>
+Supérieur <input type="text"/>  Grade <input type="number" step="0.5"/>
 
 
 <h2>Attributs</h2>
-<div id="attributs">
-	<div><label for="force">Force</label><br><input type="number" min="0" name="attr_force" id="force"/></div>
-	<div><label for="agilite">Agilité</label><br><input type="number" min="0" name="attr_agilite" id="agilite"/></div>
-	<div><label for="perception">Perception</label><br><input type="number" min="0" name="attr_perception" id="perception"/></div>
-	<div><label for="volonte">Volonté</label><br><input type="number" min="0" name="attr_volonte" id="volonte"/></div>
-	<div><label for="presence">Présence</label><br><input type="number" min="0" name="attr_presence" id="presence"/></div>
-	<div><label for="foi">Foi</label><br><input type="number" min="0" name="attr_foi" id="foi"/></div>
+<div class="sheet-attributs">
+	<div><label for="force">Force</label><br><input type="number" step="0.5" min="0" name="attr_force" id="force"/></div>
+	<div><label for="agilite">Agilité</label><br><input type="number" step="0.5" min="0" name="attr_agilite" id="agilite"/></div>
+	<div><label for="perception">Perception</label><br><input type="number" step="0.5" min="0" name="attr_perception" id="perception"/></div>
+	<div><label for="volonte">Volonté</label><br><input type="number" step="0.5" min="0" name="attr_volonte" id="volonte"/></div>
+	<div><label for="presence">Présence</label><br><input type="number" step="0.5" min="0" name="attr_presence" id="presence"/></div>
+	<div><label for="foi">Foi</label><br><input type="number" step="0.5" min="0" name="attr_foi" id="foi"/></div>
 </div>
 <table>
 	
@@ -51,8 +51,8 @@ Supérieur <input type="text"/>  Grade <input type="number"/>
 		<td><input type="checkbox"></td>
 	</tr>
 </table>
-<div id="talents">
-	<div id="talents_principaux"> 
+<div class="sheet-talents">
+	<div class="sheet-talents_principaux"> 
 	<h2>Talents Principaux</h2>
 
 	<table>
@@ -66,115 +66,111 @@ Supérieur <input type="text"/>  Grade <input type="number"/>
 		<tbody>
 		<tr>
 			<td><label for="barratin">Barratin</label></td>
-			<td><input type="number" id="barratin" name="barratin" min="0"></td>
+			<td><input type="number" step="0.5" id="barratin" name="barratin" min="0"></td>
 			<td>Pré</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="combat">Combat</label></td>
-			<td><input type="number" id="combat" name="combat" min="0"></td>
+			<td><input type="number" step="0.5" id="combat" name="combat" min="0"></td>
 			<td>Agi</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="combat_spe">Combat spé.</label><input type="text"></td>
-			<td><input type="number" id="combat_spe" name="combat_spe" min="0"></td>
+			<td><input type="number" step="0.5" id="combat_spe" name="combat_spe" min="0"></td>
 			<td>Agi</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="cac">Corps à corps</label></td>
-			<td><input type="number" id="cac" name="cac" min="0"></td>
+			<td><input type="number" step="0.5" id="cac" name="cac" min="0"></td>
 			<td>Agi</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="defense">Défense</label></td>
-			<td><input type="number" id="defense" name="defense" min="0"></td>
+			<td><input type="number" step="0.5" id="defense" name="defense" min="0"></td>
 			<td>Agi</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="discretion">Discrétion</label></td>
-			<td><input type="number" id="discretion" name="discretion" min="0"></td>
+			<td><input type="number" step="0.5" id="discretion" name="discretion" min="0"></td>
 			<td>Agi</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="discussion">Discussion</label></td>
-			<td><input type="number" id="discussion" name="discussion" min="0"></td>
+			<td><input type="number" step="0.5" id="discussion" name="discussion" min="0"></td>
 			<td>Vol</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="enquete">Enquête</label></td>
-			<td><input type="number" id="enquete" name="enquete" min="0"></td>
+			<td><input type="number" step="0.5" id="enquete" name="enquete" min="0"></td>
 			<td>Foi</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="fouille">Fouille</label></td>
-			<td><input type="number" id="fouille" name="fouille" min="0"></td>
+			<td><input type="number" step="0.5" id="fouille" name="fouille" min="0"></td>
 			<td>Per</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="intrusion">Intrusion</label></td>
-			<td><input type="number" id="intrusion" name="intrusion" min="0"></td>
+			<td><input type="number" step="0.5" id="intrusion" name="intrusion" min="0"></td>
+			<td></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td><label for="medecine">Médecine</label></td>
-			<td><input type="number" id="medecine" name="medecine" min="0"></td>
+			<td><input type="number" step="0.5" id="medecine" name="medecine" min="0"></td>
+			<td></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td><label for="seduction">Séduction</label></td>
-			<td><input type="number" id="seduction" name="seduction" min="0"></td>
+			<td><input type="number" step="0.5" id="seduction" name="seduction" min="0"></td>
 			<td>Pré</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="tir">Tir</label></td>
-			<td><input type="number" id="tir" name="tir" min="0"></td>
+			<td><input type="number" step="0.5" id="tir" name="tir" min="0"></td>
 			<td>Per</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="tir_spe">Tir spé.</label><input type="text"></td>
-			<td><input type="number" id="tir_spe" name="tir_spe" min="0"></td>
+			<td><input type="number" step="0.5" id="tir_spe" name="tir_spe" min="0"></td>
 			<td>Per</td>
+			<td></td>
 		</tr>
 		</tbody>
 	</table>
-		<div id="talents_exotiques">
+		<div class="sheet-talents_exotiques">
 			<h2>Talents Exotiques</h2>
-			<table>
-				<thead>
-				<tr>
-					<th>Talent</th>
-					<th>Niveau</th>
-					<th>Carac</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td><input type="text"></td>
-					<td><input type="number" min="0"></td>
-					<td><input type="number" min="0"></td>
-				</tr>
-
-				<tr>
-					<td><input type="text"></td>
-					<td><input type="number" min="0"></td>
-					<td><input type="number" min="0"></td>
-				</tr>
-
-				<tr>
-					<td><input type="text"></td>
-					<td><input type="number" min="0"></td>
-					<td><input type="number" min="0"></td>
-				</tr>
-
-				<tr>
-					<td><input type="text"></td>
-					<td><input type="number" min="0"></td>
-					<td><input type="number" min="0"></td>
-				</tr>
-				</tbody>
-			</table>
+			<fieldset class="repeating_talents_exotiques">
+                <div class="flex-col skill">
+                <div><select name="attr_dtype" class="dtype">
+                    <option value="force">Force</option>
+                    <option value="volonte">Volonté</option>
+                    <option value="perception">Perception</option>
+                    <option value="agilite">Agilité</option>
+                    <option value="foi">Foi</option>
+                    <option value="presence">Présence</option>
+                </select></div>
+                <div><input type="text" name="attr_exotiqueskillname1" placeholder="Nouveau talent" /></div>
+                <div class="center"><input type="number" value=1 min="1" max="6" name="attr_exotiqueskilllevel1" /></div>
+                <div><button type="roll" class="sheet-btRoll" title="Jet" name="jet"
+                 value="&{template:insmv} {{name=@{exotiqueskillname1}}} {{level=@{exotiqueskilllevel1}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}" />
+                </div>
+            </fieldset>
 		</div>
 	</div>
-	<div id="talents_secondaires">
+	<div class="sheet-talents_secondaires">
 	<h2>Talents Secondaires</h2>
 	<table>
 		<thead>
@@ -187,146 +183,175 @@ Supérieur <input type="text"/>  Grade <input type="number"/>
 		<tbody>
 		<tr>
 			<td><label for="acrobatie">Acrobatie</label></td>
-			<td><input type="number" id="acrobatie" name="acrobatie" min="0"></td>
+			<td><input type="number" step="0.5" id="acrobatie" name="acrobatie" min="0"></td>
 			<td>Agi</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="aisance sociale">Aisance Sociale</label></td>
-			<td><input type="number" id="aisance sociale" name="aisance sociale" min="0"></td>
+			<td><input type="number" step="0.5" id="aisance sociale" name="aisance sociale" min="0"></td>
 			<td>Pré</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="art">Art<label></td>
-			<td><input type="number" id="art" name="art" min="0"></td>
+			<td><input type="number" step="0.5" id="art" name="art" min="0"></td>
 			<td>Pré</td>
+			<td></td>
 		<tr>
 			<td><label for="art_spe">Art spé.</label><input type="text"></td>
-			<td><input type="number" id="art_spe" name="art_spe" min="0"></td>
+			<td><input type="number" step="0.5" id="art_spe" name="art_spe" min="0"></td>
 			<td>Pré</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="athletisme">Athlétisme</label></td>
-			<td><input type="number" id="athletisme" name="athletisme" min="0"></td>
+			<td><input type="number" step="0.5" id="athletisme" name="athletisme" min="0"></td>
 			<td>For</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="conduite">Conduite</label></td>
-			<td><input type="number" id="conduite" name="conduite" min="0"></td>
-			<td>Agi</td>    
+			<td><input type="number" step="0.5" id="conduite" name="conduite" min="0"></td>
+			<td>Agi</td>
+			<td></td>    
 		</tr>
 		<tr>
 			<td><label for="cuture_generale">Cuture générale</label></td>
-			<td><input type="number" id="cuture_generale" name="cuture_generale" min="0"></td>
+			<td><input type="number" step="0.5" id="cuture_generale" name="cuture_generale" min="0"></td>
+			<td></td>
 			<td></td>           
 		</tr>
 		<tr>
 			<td><label for="cuture_generale_spe">Cuture générale spé.</label><input type="text"></td>
-			<td><input type="number" id="cuture_generale_spe" name="cuture_generale_spe" min="0"></td>
+			<td><input type="number" step="0.5" id="cuture_generale_spe" name="cuture_generale_spe" min="0"></td>
+			<td></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td><label for="informatique">Informatique</label></td>
-			<td><input type="number" id="informatique" name="informatique" min="0"></td>
+			<td><input type="number" step="0.5" id="informatique" name="informatique" min="0"></td>
+			<td></td>
 			<td></td>     
 		</tr>
 		<tr>
 			<td><label for="intimidation">Intimidation</label></td>
-			<td><input type="number" id="intimidation" name="intimidation" min="0"></td>
-			<td>For</td>           
+			<td><input type="number" step="0.5" id="intimidation" name="intimidation" min="0"></td>
+			<td>For</td>
+			<td></td>           
 		</tr>
 		<tr>
 			<td><label for="langues">Langues</label></td>
-			<td><input type="number" id="langues" name="langues" min="0"></td>
+			<td><input type="number" step="0.5" id="langues" name="langues" min="0"></td>
+			<td></td>
 			<td></td>                    
 		</tr>
 		<tr>
 			<td><label for="metier">Métier</label></td>
-			<td><input type="number" id="metier" name="metier" min="O"></td>
+			<td><input type="number" step="0.5" id="metier" name="metier" min="O"></td>
+			<td></td>
 			<td></td>                                
 		</tr>
 		<tr>
 			<td><label for="metier_spe">Métier spé.</label><input type="text"></td>
-			<td><input type="number" id="metier_spe" name="metier_spe" min="0"></td>
+			<td><input type="number" step="0.5" id="metier_spe" name="metier_spe" min="0"></td>
+			<td></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td><label for="navigation">Navigation</label></td>
-			<td><input type="number" id="navigation" name="navigation" min="0"></td>
+			<td><input type="number" step="0.5" id="navigation" name="navigation" min="0"></td>
+			<td></td>
 			<td></td>                      
 		</tr>
 		<tr>
 			<td><label for="pilotage">Pilotage</label></td>
-			<td><input type="number" id="pilotage" name="pilotage" min="0"></td>
+			<td><input type="number" step="0.5" id="pilotage" name="pilotage" min="0"></td>
+			<td></td>
 			<td></td>               
 		</tr>
 		<tr>
 			<td><label for="savoir_criminel">Savoir Criminel</label></td>
-			<td><input type="number" id="savoir_criminel" name="savoir_criminel" min="0"></td>
+			<td><input type="number" step="0.5" id="savoir_criminel" name="savoir_criminel" min="0"></td>
+			<td></td>
 			<td></td>                                   
 		</tr>
 		<tr>
 			<td><label for="savoir_criminel_spe">Savoir Criminel spé.</label><input type="text"></td>
-			<td><input type="number" id="savoir_criminel_spe" name="savoir_criminel_spe" min="0"></td>
+			<td><input type="number" step="0.5" id="savoir_criminel_spe" name="savoir_criminel_spe" min="0"></td>
+			<td></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td><label for="savoir_d'espion">Savoir d'Espion</label></td>
-			<td><input type="number" id="savoir_d'espion" name="savoir_d'espion" min="0"></td> 
+			<td><input type="number" step="0.5" id="savoir_d'espion" name="savoir_d'espion" min="0"></td> 
+			<td></td>
 			<td></td>                                     
 		</tr>
 		<tr>
 			<td><label for="savoir_d'espion_spe">Savoir d'Espion spé.</label><input type="text"></td>
-			<td><input type="number" id="savoir_d'espion_spe" name="savoir_d'espion_spe" min="0"></td>
+			<td><input type="number" step="0.5" id="savoir_d'espion_spe" name="savoir_d'espion_spe" min="0"></td>
+			<td></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td><label for="savoir_militaire">Savoir Militaire</label></td>
-			<td><input type="number" id="savoir_militaire" name="savoir_militaire" min="0"></td>
+			<td><input type="number" step="0.5" id="savoir_militaire" name="savoir_militaire" min="0"></td>
+			<td></td>
 			<td></td>                                     
 		</tr>
 		<tr>
 			<td><label for="savoir_militaire_spe">Savoir Militaire spé.</label><input type="text"></td>
-			<td><input type="number" id="savoir_militaire_spe" name="savoir_militaire_spe" min="0"></td>
+			<td><input type="number" step="0.5" id="savoir_militaire_spe" name="savoir_militaire_spe" min="0"></td>
+			<td></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td><label for="savoir_occulte">Savoir Occulte</label></td>
-			<td><input type="number" id="savoir_occulte" name="savoir_occulte" min="0"></td>
+			<td><input type="number" step="0.5" id="savoir_occulte" name="savoir_occulte" min="0"></td>
+			<td></td>
 			<td></td>                                     
 		</tr>
 		<tr>
 			<td><label for="savoir_occulte_spe">Savoir Occulte spé.</label><input type="text"></td>
-			<td><input type="number" id="savoir_occulte_spe" name="savoir_occulte_spe" min="0"></td>
+			<td><input type="number" step="0.5" id="savoir_occulte_spe" name="savoir_occulte_spe" min="0"></td>
+			<td></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td><label for="science">Science</label></td>
-			<td><input type="number" id="science" name="science" min="0"></td>
+			<td><input type="number" step="0.5" id="science" name="science" min="0"></td>
+			<td></td>
 			<td></td>                                     
 		</tr>
 		<tr>
 			<td><label for="science_spe">science spé.</label><input type="text"></td>
-			<td><input type="number" id="science_spe" name="science_spe" min="0"></td>
+			<td><input type="number" step="0.5" id="science_spe" name="science_spe" min="0"></td>
+			<td></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td><label for="survie">Survie</label></td>
-			<td><input type="number" id="survie" name="survie" min="0"></td>
-			<td>Per</td>                        
+			<td><input type="number" step="0.5" id="survie" name="survie" min="0"></td>
+			<td>Per</td>
+			<td></td>    
 		</tr>
 		<tr>
 			<td><label for="survie_spe">survie spé.</label><input type="text"></td>
-			<td><input type="number" id="survie_spe" name="survie_spe" min="0"></td>
+			<td><input type="number" step="0.5" id="survie_spe" name="survie_spe" min="0"></td>
 			<td>Per</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><label for="technique">Technique</label></td>
-			<td><input type="number" id="technique" name="technique" min="0"></td>
+			<td><input type="number" step="0.5" id="technique" name="technique" min="0"></td>
+			<td></td>
 			<td></td> 
 		</tr>
 		<tr>
 			<td><label for="technique_spe">technique spé.</label><input type="text"></td>
-			<td><input type="number" id="technique_spe" name="technique_spe" min="0"></td>
+			<td><input type="number" step="0.5" id="technique_spe" name="technique_spe" min="0"></td>
+			<td></td>
 			<td></td>
 		</tr>
 		</tbody>
@@ -334,39 +359,90 @@ Supérieur <input type="text"/>  Grade <input type="number"/>
 	</div>
 </div>
 <h2>Pouvoirs</h2>
-<table>
-    <thead>
-    <tr>
-        <th>Pouvoir</th>
-        <th>Niveau</th>
-        <th>PP</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td><input type="text"></td>
-        <td><input type="number" min="0"></td>
-        <td><input type="number" min="0"></td>
-    </tr>
 
-    <tr>
-        <td><input type="text"></td>
-        <td><input type="number" min="0"></td>
-        <td><input type="number" min="0"></td>
-    </tr>
+<fieldset class="repeating_powers">
+            <div class="sheet-flex-col power">
+                <div class="shrinkable"><!-- Type -->
+                    <select name="attr_type">
+                    <option value="mental">Mental</option>
+                    <option value="physique">Physique</option>
+                    <option value="spirituel">Spirituel</option>
+                    </select>
+                </div>
+                <div class="half"><!-- Nom -->
+                    <input type="text" name="attr_powername" placeholder="Nom du pouvoir" />
+                </div>
+                <div><!-- Niveau -->
+                    <span style="padding-left: 5px;"><strong>Niv. : </strong></span><input type="number" step="0.5" value=1 min="1" step="0.5" name="attr_powerlevel" placeholder="niveau" />
+                </div>
+                <div><!-- Coût -->
+                    <input type="number" step="0.5" min="0" placeholder="coût" value="0" name="attr_powercost" class="pp_cost" /><strong>PP</strong>
+                </div>
+                <div class="shrinkable">
+                	<button type="roll" class="sheet-btRoll" title="Jet" name="jet"
+                    value="&{template:insmv}  {{accuracy=[[@{poweraccuracy}]]}} {{damage=@{powerdamage}}} {{name=@{powername}}} {{level=@{powerlevel}}} {{subtags=Pouvoir @{type}}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}" />
+                </div>
+                <div class="shrinkable"><button type="action" name="act_activate">⚡ Activer</button></div>
+                <div class="shrinkable"><!-- Défense -->
+                <label>Défense :</label><select name="attr_powerdefense" class="dtype">
+                    <option value="">Aucune</option>
+                    <option value="defense">Defense</option>
+                    <option value="foi">Foi</option>
+                    <option value="force">Force</option>
+                    <option value="volonte">Volonté</option>
+                    <option value="perception">Perception</option>
+                    <option value="agilite">Agilité</option>
+                    <option value="presence">Présence</option>
+                </select>
+                </div>
+                <div class="center"><!-- Portée -->
+                <label>Portée :</label><input name="attr_powerrange" placeholder="Vue" />
+                </div>
+                <div class="center">
+                    <label>PU :</label><input type="number" name="attr_powerdamage" value="0" placeholder="PU" />
+                </div>
+                <div class="center">
+                    <label>PR :</label><input type="number" name="attr_poweraccuracy" value="0" placeholder="PR" />
+                </div>
+                <div class="center"><!-- Permanent -->
+                    <label>Permanent :</label><input type="checkbox" name="attr_powerpermanent" />
+                </div>
+                <div class="large">
+                    <textarea rows="1" name="attr_powerdescription" class="description" placeholder="Description" /></textarea>
+                </div>
+            </div>
+            </fieldset>
 
-    <tr>
-        <td><input type="text"></td>
-        <td><input type="number" min="0"></td>
-        <td><input type="number" min="0"></td>
-    </tr>
+<rolltemplate class="sheet-rolltemplate-insmv">
+    <div class="container">
+        <div><h1>{{name}}</h1></div>
+		<div><span class="subheader">{{subtags}}{{#level}} (niv. {{level}}){{/level}}</span></div>
+		{{#difficulty}}<div><span class="subheader">Difficulté {{difficulty}}</span></div>{{/difficulty}}
+        <div class="arrow-container"><div class="arrow-right"></div></div>
+        <div class="rowcolor"><span class="tcat">Dés : </span>{{jet1}} | {{jet2}} | <span class="units">{{jet3}}</span></div>
+        <div class="rowcolor"><span class="tcat">RU : </span> {{jet3}} </div>
+        {{#^rollBetween() offset 0 0}}
+            <div class="unit-modifier rowcolor"><span class="tcat">+ décalage de </span>{{offset}}</div>
+        {{/^rollBetween() offset 0 0}}
+        {{#damage}}
+            <div class="unit-modifier rowcolor"><span class="tcat">+ puissance : </span>{{damage}}</div>
+        {{/damage}}
+        {{#accuracy}}{{#^rollBetween() accuracy 0 0}}
+            <div class="rowcolor">
+                <span class="tcat">Bonus de précision : </span>{{accuracy}}
+            </div>
+        {{/^rollBetween() accuracy 0 0}}{{/accuracy}}
+ 
+        {{#rollWasCrit() jet1}}{{#rollWasCrit() jet2}}{{#rollWasCrit() jet3}}
+        <div class="crit-angel">111</div>
+        {{/rollWasCrit() jet3}}{{/rollWasCrit() jet2}}{{/rollWasCrit() jet1}}
+ 
+        {{#rollWasFumble() jet1}}{{#rollWasFumble() jet2}}{{#rollWasFumble() jet3}}
+        <div class="crit-demon">666</div>
+        {{/rollWasFumble() jet3}}{{/rollWasFumble() jet2}}{{/rollWasFumble() jet1}}
+    </div>
+</rolltemplate>
 
-    <tr>
-        <td><input type="text"></td>
-        <td><input type="number" min="0"></td>
-        <td><input type="number" min="0"></td>
-    </tr>
-    </tbody>
-</table>
-
-</div>
+<script type="text/worker">
+	// ========== SPELLS ========== on("clicked:repeating_powers:activate", function() {     getAttrs(["repeating_powers_powercost", "pp"], function(values) {         setAttrs({pp: values.pp - values.repeating_powers_powercost});     }); });
+</script>
