@@ -1,688 +1,738 @@
-<link rel="stylesheet" href="insmv4.css">
-
-
-
 <div>
-    <button type="action" name="act_tabcharacter" >Character</button>
-    <button type="action" name="act_tabpower" >Power</button>
-    <button type="action" name="act_tabinventory" >Inventory</button>
+    <button type="action" name="act_tabcharacter" value="tabcharacter">Character</button>
+    <button type="action" name="act_tabpower" value="tabpower">Power</button>
+    <button type="action" name="act_tabinventory" value="tabinventory">Inventory</button>
+    <button type="action" name="act_tabcontacts" value="tabcontacts">Contacts</button>
+    <button type="action" name="act_tabnotes" value="tabnotes">Notes</button>
 </div>
-<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
+<input type="hidden" class="tabstoggle" name="attr_sheetTab" value="tabcharacter"/>
 
-<div class='sheet-tabcharacter'>
-<label>Nom</label> <input name="attr_nom" type="text"/>
-<label>Prénom</label> <input name="attr_prenom" type="text"/>
-<label>Age</label> <input type="number" step="1"/>
-<label>Sexe</label> <input type="text"/>
+<div class="tabcharacter">
+    <div class="half-container">
 
-<label>Nature du personnage</label>
-<select name="attr_nature"/>
-    <option value="ange">Ange</option>
-    <option value="demon">Démon</option>
-    <option value="hero">Héros</option>
-    <option value="human">Humain</option>
-</select>
+        <div class="half"><label>Nom</label> <input name="attr_nom" type="text"/></div>
+        <div class="half"><label>Prénom</label> <input name="attr_prenom" type="text"/></div>
+        <div class="flex-br"></div>
+        <div class="half"><label>Age</label> <input name="attr_age" type="number" step="1"/></div>
+        <div class="half"><label>Sexe</label> <input name="attr_sexe" type="text"/></div>
 
-<label>Vrai Nom </label><input name="attr_vrainom" type="text"/>
-<label>Supérieur </label><input name="attr_superieur" type="text"/> Grade <input type="number" min="-1" value="0" max="3" step="1"/>
+        <div class="flex-br"></div>
 
-<div class="sheet-tum">
-</div>
+        <div class="half"><label>Nature du personnage</label>
+            <select name="attr_nature"/>
+            <option value="ange">Ange</option>
+            <option value="demon">Démon</option>
+            <option value="hero">Héros</option>
+            <option value="human">Humain</option>
+            </select>
+        </div>
 
-<h2>Attributs</h2>
-<div class="sheet-attributs">
-    <div><label>Force</label><br><input type="number" value="2" step="0.5" min="0" name="attr_force"/></div>
-    <div><label>Agilité</label><br><input type="number" value="2" step="0.5" min="0" name="attr_agilite"/></div>
-    <div><label>Perception</label><br><input type="number" value="2" step="0.5" min="0" name="attr_perception"/></div>
-    <div><label>Volonté</label><br><input type="number" value="2" step="0.5" min="0" name="attr_volonte"/></div>
-    <div><label>Présence</label><br><input type="number" value="2" step="0.5" min="0" name="attr_presence"/></div>
-    <div><label>Foi</label><br><input type="number" value="2" step="0.5" min="0" name="attr_foi"/></div>
-</div>
-<div class="sheet-attributs">
-    <table>
-        <tr>
-            <td>PP</td>
-            <td><input name="attr_pp" type="number" min="0" step="1"></td>
-            <td>/</td>
-            <td><input name="attr_pp_max" type="number" min="0" step="1"></td>
-        </tr>
-    </table>
+        <div class="half"><label>Vrai Nom </label><input name="attr_vrainom" type="text"/></div>
+        <div class="half"><label>Supérieur </label><input name="attr_superieur" type="text"/></div>
+        <div class="half"><label>Grade </label><input type="text" name="attr_grade"/></div>
+    </div>
 
-    <table>
-        <tr>
-            <td>PF</td>
-            <td><input name="attr_pf" type="number" min="0" step="1"></td>
-            <td>/</td>
-            <td><input name="attr_pf_max" type="number" min="0" step="1"></td>
-        </tr>
-    </table>
+    <div class="tum">
+    </div>
 
-    <table>
-        <tr>
-            <td><label>BL</label></td>
-            <td><input name="attr_blessure" type="number" min="0"></td>
-            <td><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"></td>
-        </tr>
-        <tr>
-            <td><label>BG</label></td>
-            <td><input type="number" min="0"></td>
-            <td><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"></td>
-        </tr>
-        <tr>
-            <td><label>BF</label></td>
-            <td><input type="number" min="0"></td>
-            <td><input type="checkbox"><input type="checkbox"></td>
-        </tr>
-        <tr>
-            <td><label>MS</label></td>
-            <td><input type="number" min="0"></td>
-            <td><input type="checkbox"></td>
-        </tr>
-    </table>
-</div>
-
-<div class="sheet-talents">
-    <div class="sheet-talentsprincipaux">
-        <h2>Talents Principaux</h2>
+    <h2>Attributs</h2>
+    <div class="attributs">
+        <div><label class="label">Force</label><br><input type="number" value="2" step="0.5" min="0" name="attr_force"/>
+            <button type="roll" class="btRoll" title="Jet" name="jet"
+                    value="&{template:insmv} {{name=Force}} {{level=@{force}}} {{subtags=Attribut}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+        </div>
+        <div><label class="label">Agilité</label><br><input type="number" value="2" step="0.5" min="0" name="attr_agilite"/>
+            <button type="roll" class="btRoll" title="Jet" name="jet"
+                    value="&{template:insmv} {{name=Agilité}} {{level=@{agilite}}} {{subtags=Attribut}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+        </div>
+        <div><label class="label">Perception</label><br><input type="number" value="2" step="0.5" min="0" name="attr_perception"/>
+            <button type="roll" class="btRoll" title="Jet" name="jet"
+                    value="&{template:insmv} {{name=Perception}} {{level=@{perception}}} {{subtags=Attribut}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+        </div>
+        <div><label class="label">Volonté</label><br><input type="number" value="2" step="0.5" min="0" name="attr_volonte"/>
+            <button type="roll" class="btRoll" title="Jet" name="jet"
+                    value="&{template:insmv} {{name=Volonté}} {{level=@{volonte}}} {{subtags=Attribut}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+        </div>
+        <div><label class="label">Présence</label><br><input type="number" value="2" step="0.5" min="0" name="attr_presence"/>
+            <button type="roll" class="btRoll" title="Jet" name="jet"
+                    value="&{template:insmv} {{name=Présence}} {{level=@{presence}}} {{subtags=Attribut}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+        </div>
+        <div><label class="label">Foi</label><br><input type="number" value="2" step="0.5" min="0" name="attr_foi"/>
+            <button type="roll" class="btRoll" title="Jet" name="jet"
+                    value="&{template:insmv} {{name=Foi}} {{level=@{foi}}} {{subtags=Attribut}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+        </div>
+    </div>
+    <div class="attributs">
+        <table>
+            <tr>
+                <td>PP</td>
+                <td><input name="attr_pp" type="number" min="0" step="1"></td>
+                <td>/</td>
+                <td><input name="attr_pp_max" type="number" min="0" step="1"></td>
+            </tr>
+        </table>
 
         <table>
-            <thead>
             <tr>
-                <th>Talent</th>
-                <th>Niveau</th>
-                <th>Carac</th>
+                <td>PF</td>
+                <td><input name="attr_pf" type="number" min="0" step="1"></td>
+                <td>/</td>
+                <td><input name="attr_pf_max" type="number" min="0" step="1"></td>
             </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td><label>Barratin</label></td>
-                <td><input type="number" step="0.5" name="attr_barratin" min="0"></td>
-                <td>Pré</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Barratin}} {{level=@{barratin}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Combat</label></td>
-                <td><input type="number" step="0.5" name="attr_combat" min="0"></td>
-                <td>Agi</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Combat}} {{level=@{combat}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Combat spé.</label><input type="text"></td>
-                <td><input type="number" step="0.5" name="attr_combatspe" min="0"></td>
-                <td>Agi</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Combat spé.}} {{level=@{combatspe}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Corps à corps</label></td>
-                <td><input type="number" step="0.5" name="attr_cac" min="0"></td>
-                <td>Agi</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Corps à corps}} {{level=@{cac}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Défense</label></td>
-                <td><input type="number" step="0.5" name="attr_defense" min="0"></td>
-                <td>Agi</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Défense}} {{level=@{defense}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Discrétion</label></td>
-                <td><input type="number" step="0.5" name="attr_discretion" min="0"></td>
-                <td>Agi</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Discrétion}} {{level=@{discretion}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Discussion</label></td>
-                <td><input type="number" step="0.5" name="attr_discussion" min="0"></td>
-                <td>Vol</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Discussion}} {{level=@{discussion}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Enquête</label></td>
-                <td><input type="number" step="0.5" name="attr_enquete" min="0"></td>
-                <td>Foi</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Enquête}} {{level=@{enquete}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Fouille</label></td>
-                <td><input type="number" step="0.5" name="attr_fouille" min="0"></td>
-                <td>Per</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Fouille}} {{level=@{fouille}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Intrusion</label></td>
-                <td><input type="number" step="0.5" name="attr_intrusion" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Intrusion}} {{level=@{intrusion}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Médecine</label></td>
-                <td><input type="number" step="0.5" name="attr_medecine" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Médecine}} {{level=@{medecine}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Séduction</label></td>
-                <td><input type="number" step="0.5" name="attr_seduction" min="0"></td>
-                <td>Pré</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Séduction}} {{level=@{seduction}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Tir</label></td>
-                <td><input type="number" step="0.5" name="attr_tir" min="0"></td>
-                <td>Per</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Tir}} {{level=@{tir}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Tir spé.</label><input type="text"></td>
-                <td><input type="number" step="0.5" name="attr_tirspe" min="0"></td>
-                <td>Per</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Tir Spé}} {{level=@{tirspe}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-                </td>
-            </tr>
-            </tbody>
         </table>
-        <div class="sheet-talentsexotiques">
-            <h2>Talents Exotiques</h2>
-            <fieldset class="repeating_talentsexotiques">
-                <div class="flex-col skill">
+        <br/><br/>
 
-                    <div><input type="text" name="attr_exotiqueskillname1" placeholder="Nouveau talent"/></div>
-                    <div class="center"><input type="number" value=1 step="0.5" name="attr_exotiqueskilllevel1"/></div>
-                    <div>
-                        <select name="attr_dtype" class="dtype">
-                            <option value="force">For</option>
-                            <option value="volonte">Vol</option>
-                            <option value="perception">Per</option>
-                            <option value="agilite">Agi<option>
-                            <option value="foi">Foi</option>
-                            <option value="presence">Pré</option>
-                        </select>
+        <table>
+            <tr>
+                <td><label class="label">BL</label></td>
+                <td><input name="attr_blessure" type="number" min="0"></td>
+                <td><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td><label class="label">BG</label></td>
+                <td><input name="attr_blessuregrave" type="number" min="0"></td>
+                <td><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td><label class="label">BF</label></td>
+                <td><input name="attr_blessurefatale" type="number" min="0"></td>
+                <td><input type="checkbox"><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td><label class="label">MS</label></td>
+                <td><input name="attr_mortsubite" type="number" min="0"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="talents">
+        <div class="talentsprincipaux">
+            <h2>Talents Principaux</h2>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Talent</th>
+                    <th>Niveau</th>
+                    <th>Carac</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><label class="label">Barratin</label></td>
+                    <td><input type="number" step="0.5" name="attr_barratin" min="0"></td>
+                    <td>Pré</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Barratin}} {{level=@{barratin}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Combat</label></td>
+                    <td><input type="number" step="0.5" name="attr_combat" min="0"></td>
+                    <td>Agi</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Combat}} {{level=@{combat}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="label">
+                            <label>Combat spé.</label><input name="attr_combatspename" type="text">
+                        </div>
+                    </td>
+                    <td><input type="number" step="0.5" name="attr_combatspe" min="0"></td>
+                    <td>Agi</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Combat spé.}} {{level=@{combatspe}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Corps à corps</label></td>
+                    <td><input type="number" step="0.5" name="attr_cac" min="0"></td>
+                    <td>Agi</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Corps à corps}} {{level=@{cac}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Défense</label></td>
+                    <td><input type="number" step="0.5" name="attr_defense" min="0"></td>
+                    <td>Agi</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Défense}} {{level=@{defense}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Discrétion</label></td>
+                    <td><input type="number" step="0.5" name="attr_discretion" min="0"></td>
+                    <td>Agi</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Discrétion}} {{level=@{discretion}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Discussion</label></td>
+                    <td><input type="number" step="0.5" name="attr_discussion" min="0"></td>
+                    <td>Vol</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Discussion}} {{level=@{discussion}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Enquête</label></td>
+                    <td><input type="number" step="0.5" name="attr_enquete" min="0"></td>
+                    <td>Foi</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Enquête}} {{level=@{enquete}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Fouille</label></td>
+                    <td><input type="number" step="0.5" name="attr_fouille" min="0"></td>
+                    <td>Per</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Fouille}} {{level=@{fouille}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Intrusion</label></td>
+                    <td><input type="number" step="0.5" name="attr_intrusion" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Intrusion}} {{level=@{intrusion}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Médecine</label></td>
+                    <td><input type="number" step="0.5" name="attr_medecine" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Médecine}} {{level=@{medecine}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Séduction</label></td>
+                    <td><input type="number" step="0.5" name="attr_seduction" min="0"></td>
+                    <td>Pré</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Séduction}} {{level=@{seduction}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Tir</label></td>
+                    <td><input type="number" step="0.5" name="attr_tir" min="0"></td>
+                    <td>Per</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Tir}} {{level=@{tir}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="label">
+                            <label class="label">Tir spé.</label><input name="attr_tirspename" type="text">
+                        </div>
+                    </td>
+                    <td><input type="number" step="0.5" name="attr_tirspe" min="0"></td>
+                    <td>Per</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Tir Spé}} {{level=@{tirspe}}} {{subtags=Talent}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="talentsexotiques">
+                <h2>Talents Exotiques</h2>
+                <fieldset class="repeating_talentsexotiques">
+                    <div class="flex-col skill">
+
+                        <div><input type="text" name="attr_exotiqueskillname1" placeholder="Nouveau talent"/></div>
+                        <div class="center"><input type="number" value=1 step="0.5" name="attr_exotiqueskilllevel1"/></div>
+                        <div>
+                            <select name="attr_dtype" class="dtype">
+                                <option value="force">For</option>
+                                <option value="volonte">Vol</option>
+                                <option value="perception">Per</option>
+                                <option value="agilite">Agi
+                                <option>
+                                <option value="foi">Foi</option>
+                                <option value="presence">Pré</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="roll" class="btRoll" title="Jet" name="jet"
+                                    value="&{template:insmv} {{name=@{exotiqueskillname1}}} {{level=@{exotiqueskilllevel1}}} {{subtags=Talent Exotique}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                        </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="talentssecondaires">
+            <h2>Talents Secondaires</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Talent</th>
+                    <th>Niveau</th>
+                    <th>Carac</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><label class="label">Acrobatie</label></td>
+                    <td><input type="number" step="0.5" name="attr_acrobatie" min="0"></td>
+                    <td>Agi</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Acrobatie}} {{level=@{acrobatie}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Aisance Sociale</label></td>
+                    <td><input type="number" step="0.5" name="attr_aisancesociale" min="0"></td>
+                    <td>Pré</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Aisance Sociale}} {{level=@{aisancesociale}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Art<label class="label"></td>
+                    <td><input type="number" step="0.5" name="attr_art" min="0"></td>
+                    <td>Pré</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Art}} {{level=@{art}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                <tr>
+                    <td>
+                        <div class="label"><label class="label">Art spé.</label><input name="attr_artspename" type="text"></div>
+                    </td>
+                    <td><input type="number" step="0.5" name="attr_artspe" min="0"></td>
+                    <td>Pré</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Art Spé. (@{artspename}) }} {{level=@{artspe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Athlétisme</label></td>
+                    <td><input type="number" step="0.5" name="attr_athletisme" min="0"></td>
+                    <td>For</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Athlétisme}} {{level=@{athletisme}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Conduite</label></td>
+                    <td><input type="number" step="0.5" name="attr_conduite" min="0"></td>
+                    <td>Agi</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Conduite }} {{level=@{conduite}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Cuture générale</label></td>
+                    <td><input type="number" step="0.5" name="attr_cuturegenerale" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Cuture }} {{level=@{cuturegenerale}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="label">
+                            <label class="label">Cuture générale spé.</label><input name="attr_culturegeneralespename" type="text">
+                        </div>
+                    </td>
+                    <td><input type="number" step="0.5" name="attr_culturegeneralespe" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Cuture générale Spé. (@{culturegeneralespename})}} {{level=@{culturegeneralespe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Informatique</label></td>
+                    <td><input type="number" step="0.5" name="attr_informatique" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Informatique}} {{level=@{informatique}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Intimidation</label></td>
+                    <td><input type="number" step="0.5" name="attr_intimidation" min="0"></td>
+                    <td>For</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Intimidation}} {{level=@{intimidation}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Langues</label></td>
+                    <td><input type="number" step="1" name="attr_langues" min="0"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><label class="label">Métier</label></td>
+                    <td><input type="number" step="0.5" name="attr_metier" min="O"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Métier}} {{level=@{metier}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="label">
+                            <label class="label">Métier spé.</label><input name="attr_metierspename" type="text"></div>
+                    </td>
+                    <td><input type="number" step="0.5" name="attr_metierspe" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{ name=Métier }} {{level=@{metierspe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Navigation</label></td>
+                    <td><input type="number" step="0.5" name="attr_navigation" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Navigation}} {{level=@{navigation}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Pilotage</label></td>
+                    <td><input type="number" step="0.5" name="attr_pilotage" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Pilotage}} {{level=@{pilotage}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Savoir Criminel</label></td>
+                    <td><input type="number" step="0.5" name="attr_savoir_criminel" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Savoir criminel}} {{level=@{savoir_criminel}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><div class="label"><label class="label">Savoir Criminel spé.</label><input name="attr_savoircriminelspename" type="text"></div></td>
+                    <td><input type="number" step="0.5" name="attr_savoircriminelspe" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Savoir criminel Spé. (@{savoircriminelspename})}} {{level=@{savoircriminelspe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Savoir d'espion</label></td>
+                    <td><input type="number" step="0.5" name="attr_savoirdespion" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Savoir d'espion}} {{level=@{savoirdespion}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><div class="label"><label class="label">Savoir d'Espion spé.</label><input name="attr_savoirespionspename" type="text"></div></td>
+                    <td><input type="number" step="0.5" name="attr_savoirespionspe" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Savoir d'espion Spé. (@{savoirespionspename})}} {{level=@{savoirespionspe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Savoir Militaire</label></td>
+                    <td><input type="number" step="0.5" name="attr_savoir_militaire" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Savoir Militaire}} {{level=@{savoir_militaire}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Savoir Militaire spé.</label><input name="attr_savoirmilitairespename" type="text"></td>
+                    <td><input type="number" step="0.5" name="attr_savoirmilitairespe" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Savoir Militaire Spé. (@{savoirmilitairespename})}} {{level=@{savoirmilitairespe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Savoir Occulte</label></td>
+                    <td><input type="number" step="0.5" name="attr_savoir_occulte" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Savoir Occulte}} {{level=@{savoir_occulte}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><div class="label"><label class="label">Savoir Occulte spé.</label><input name="attr_savoiroccultespename" type="text"></div></td>
+                    <td><input type="number" step="0.5" name="attr_savoiroccultespe" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Savoir Occulte Spé. (@{savoiroccultespename}) }} {{level=@{savoiroccultespe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Science</label></td>
+                    <td><input type="number" step="0.5" name="attr_science" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Science}} {{level=@{science}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><div class="label"><label class="label">Science spé.</label><input name="attr_sciencespename" type="text"></div></td>
+                    <td><input type="number" step="0.5" name="attr_sciencespe" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Science spé. (@{sciencespename})}} {{level=@{sciencespe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Survie</label></td>
+                    <td><input type="number" step="0.5" name="attr_survie" min="0"></td>
+                    <td>Per</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Survie}} {{level=@{survie}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><div class="label"><label class="label">Survie spé.</label><input name="attr_surviespename" type="text"></div></td>
+                    <td><input type="number" step="0.5" name="attr_surviespe" min="0"></td>
+                    <td>Per</td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Survie spé. (@{surviespename}) }} {{level=@{surviespe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="label">Technique</label></td>
+                    <td><input type="number" step="0.5" name="attr_technique" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Technique}} {{level=@{technique}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><div class="label"><label class="label">Technique spé.</label><input name="attr_techniquespename" type="text"></div></td>
+                    <td><input type="number" step="0.5" name="attr_techniquespe" min="0"></td>
+                    <td></td>
+                    <td>
+                        <button type="roll" class="btRoll" title="Jet" name="jet"
+                                value="&{template:insmv} {{name=Technique spé. (@{techniquespename})}} {{level=@{techniquespe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<div class="tabpower">
+    <div>
+        <h2>Pouvoirs</h2>
+        <fieldset class="repeating_powers">
+            <div class="flex-col">
+                <div class="shrinkable"><!-- Type -->
+                    <select name="attr_type">
+                        <option value="mental">Mental</option>
+                        <option value="physique">Physique</option>
+                        <option value="spirituel">Spirituel</option>
+                    </select>
+                </div>
+                <div class="half"><!-- Nom -->
+                    <input type="text" name="attr_powername" placeholder="Nom du pouvoir"/>
+                </div>
+                <div><!-- Niveau -->
+                    <span style="padding-left: 5px;"><strong>Niv. : </strong></span><input type="number" step="0.5" value=1 min="1" step="0.5"
+                                                                                           name="attr_powerlevel" placeholder="niveau"/>
+                </div>
+                <div><!-- Coût -->
+                    <input type="number" step="0.5" min="0" placeholder="coût" value="0" name="attr_powercost" class="pp_cost"/><strong>PP</strong>
+                </div>
+                <div class="shrinkable">
+                    <button type="roll" class="btRoll" title="Jet" name="jet"
+                            value="&{template:insmv}  {{accuracy=[[@{poweraccuracy}]]}} {{damage=@{powerdamage}}} {{name=@{powername}}} {{level=@{powerlevel}}} {{subtags=Pouvoir @{type}}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                </div>
+                <div class="shrinkable"><!-- Défense -->
+                    <label class="label">Défense :</label><select name="attr_powerdefense" class="dtype">
+                        <option value="">Aucune</option>
+                        <option value="defense">Defense</option>
+                        <option value="foi">Foi</option>
+                        <option value="force">Force</option>
+                        <option value="volonte">Volonté</option>
+                        <option value="perception">Perception</option>
+                        <option value="agilite">Agilité</option>
+                        <option value="presence">Présence</option>
+                    </select>
+                </div>
+                <div class="center"><!-- Portée -->
+                    <label class="label">Portée :</label><input name="attr_powerrange" placeholder="Vue"/>
+                </div>
+                <div class="center">
+                    <label class="label">PU :</label><input type="number" name="attr_powerdamage" value="0" placeholder="PU"/>
+                </div>
+                <div class="center">
+                    <label class="label">PR :</label><input type="number" name="attr_poweraccuracy" value="0" placeholder="PR"/>
+                </div>
+                <div class="center"><!-- Permanent -->
+                    <label class="label">Permanent :</label><input type="checkbox" name="attr_powerpermanent"/>
+                </div>
+                <div class="large">
+                    <textarea rows="1" name="attr_powerdescription" class="description" placeholder="Description"/></textarea>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<div class="tabinventory">
+    <div>
+        <h2>Équipement</h2>
+        <div class="flex-2col">
+            <div class="flex-subcol">
+                <h3>Armes</h3>
+                <div class="headings flex-col">
+                    <div class="half">Description</div>
+                    <div class="">Niv.</div>
+                    <div class="">PU</div>
+                    <div class="">PR</div>
+                    <div class=""></div>
+                </div>
+                <fieldset class="repeating_armes">
+                    <div class="">
+                        <div class=""><input type="text" name="attr_weaponname" placeholder="Arme"/></div>
+                        <div class=""><input type="number" min="0" max="6" name="attr_weaponlevel" placeholder="Niv"/></div>
+                        <div class=""><input type="number" name="attr_weapondamage" placeholder="PU" value="0"/></div>
+                        <div class=""><input type="number" name="attr_weaponaccuracy" placeholder="PR" value="0"/></div>
+                        <div class="">
+                            <button type="roll" class="btRoll" title="Jet" name="act_rollwiththreshold"
+                                    value="&{template:insmv} {{accuracy=[[@{weaponaccuracy}]]}} {{damage=@{weapondamage}}} {{name=@{weaponname}}} {{level=@{weaponlevel}}} {{subtags=}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                        </div>
                     </div>
-                    <div>
-                        <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                                value="&{template:insmv} {{name=@{exotiqueskillname1}}} {{level=@{exotiqueskilllevel1}}} {{subtags=Talent Exotique}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                    </div>
+                </fieldset>
+            </div>
+
+            <div class="flex-subcol">
+                <h3>Armures</h3>
+                <div class="headings sheet-flex-subcol">
+                    <div class="">Description</div>
+                    <div class="">Protection</div>
+                </div>
+                <fieldset class="repeating_armures">
+                    <div><input name="attr_armor" type="text"/></div>
+                    <div><input name="attr_armorprotection" type="number" min="0" step="1"/></div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h2>Autres possessions</h2>
+        <div class="other_stuff">
+            <div class="headings sheet-flex-col">
+                <div>Description</div>
+            </div>
+            <fieldset class="repeating_other_stuff">
+                <div class="flex-col">
+                    <div><input type="text" name="attr_weaponname" size="100"/></div>
             </fieldset>
         </div>
     </div>
-    <div class="sheet-talentssecondaires">
-        <h2>Talents Secondaires</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>Talent</th>
-                <th>Niveau</th>
-                <th>Carac</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td><label>Acrobatie</label></td>
-                <td><input type="number" step="0.5" name="attr_acrobatie" min="0"></td>
-                <td>Agi</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Acrobatie}} {{level=@{acrobatie}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Aisance Sociale</label></td>
-                <td><input type="number" step="0.5" name="attr_aisancesociale" min="0"></td>
-                <td>Pré</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Aisance Sociale}} {{level=@{aisancesociale}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Art<label></td>
-                <td><input type="number" step="0.5" name="attr_art" min="0"></td>
-                <td>Pré</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Art}} {{level=@{art}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            <tr>
-                <td><label>Art spé.</label><input type="text"></td>
-                <td><input type="number" step="0.5" name="attr_artspe" min="0"></td>
-                <td>Pré</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Art Spé}} {{level=@{artspe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Athlétisme</label></td>
-                <td><input type="number" step="0.5" name="attr_athletisme" min="0"></td>
-                <td>For</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Athlétisme}} {{level=@{athletisme}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Conduite</label></td>
-                <td><input type="number" step="0.5" name="attr_conduite" min="0"></td>
-                <td>Agi</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Conduite }} {{level=@{conduite}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Cuture générale</label></td>
-                <td><input type="number" step="0.5" name="attr_cuturegenerale" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Cuture }} {{level=@{cuturegenerale}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Cuture générale spé.</label><input name="culturegeneralespe" type="text"></td>
-                <td><input type="number" step="0.5" name="attr_culturegeneralespe" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Cuture générale Spé}} {{level=@{culturegeneralespe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Informatique</label></td>
-                <td><input type="number" step="0.5" name="attr_informatique" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Informatique}} {{level=@{informatique}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Intimidation</label></td>
-                <td><input type="number" step="0.5" name="attr_intimidation" min="0"></td>
-                <td>For</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Intimidation}} {{level=@{intimidation}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Langues</label></td>
-                <td><input type="number" step="0.5" name="attr_langues" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Langues}} {{level=@{langues}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Métier</label></td>
-                <td><input type="number" step="0.5" name="attr_metier" min="O"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Métier}} {{level=@{metier}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Métier spé.</label><input type="text"></td>
-                <td><input type="number" step="0.5" name="attr_metier_spe" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Métier }} {{level=@{metier_spe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Navigation</label></td>
-                <td><input type="number" step="0.5" name="attr_navigation" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Navigation}} {{level=@{navigation}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Pilotage</label></td>
-                <td><input type="number" step="0.5" name="attr_pilotage" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Pilotage}} {{level=@{pilotage}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Savoir Criminel</label></td>
-                <td><input type="number" step="0.5" name="attr_savoir_criminel" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Savoir}} {{level=@{savoir_criminel}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Savoir Criminel spé.</label><input type="text"></td>
-                <td><input type="number" step="0.5" name="attr_savoircriminelspe" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Savoir}} {{level=@{savoircriminelspe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Savoir d'espion</label></td>
-                <td><input type="number" step="0.5" name="attr_savoirdespion" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Savoir d'espion}} {{level=@{savoirdespion}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Savoir d'Espion spé.</label><input type="text"></td>
-                <td><input type="number" step="0.5" name="attr_savoirespionspe" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Savoir d'espion Spé.}} {{level=@{savoirdespionspe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Savoir Militaire</label></td>
-                <td><input type="number" step="0.5" name="attr_savoir_militaire" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Savoir}} {{level=@{savoir_militaire}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Savoir Militaire spé.</label><input type="text"></td>
-                <td><input type="number" step="0.5" name="attr_savoir_militaire_spe" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Savoir Militaire Spé.}} {{level=@{savoir_militaire_spe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Savoir Occulte</label></td>
-                <td><input type="number" step="0.5" name="attr_savoir_occulte" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Savoir Occule}} {{level=@{savoir_occulte}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Savoir Occulte spé.</label><input type="text"></td>
-                <td><input type="number" step="0.5" name="attr_savoir_occulte_spe" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Savoir Occulte Spé.}} {{level=@{savoir_occulte_spe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Science</label></td>
-                <td><input type="number" step="0.5" name="attr_science" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Science}} {{level=@{science}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>science spé.</label><input type="text"></td>
-                <td><input type="number" step="0.5" name="attr_science_spe" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=science}} {{level=@{science_spe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Survie</label></td>
-                <td><input type="number" step="0.5" name="attr_survie" min="0"></td>
-                <td>Per</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Survie}} {{level=@{survie}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>survie spé.</label><input type="text"></td>
-                <td><input type="number" step="0.5" name="attr_survie_spe" min="0"></td>
-                <td>Per</td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=survie}} {{level=@{survie_spe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Technique</label></td>
-                <td><input type="number" step="0.5" name="attr_technique" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Technique}} {{level=@{technique}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Technique spé.</label><input type="text"></td>
-                <td><input type="number" step="0.5" name="attr_technique_spe" min="0"></td>
-                <td></td>
-                <td>
-                    <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                            value="&{template:insmv} {{name=Technique spe.}} {{level=@{technique_spe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
 </div>
 
-</div>
-
-<div class='sheet-tabpower'>
-    <div class="power">
-    <h2>Pouvoirs</h2>
-    <fieldset class="repeating_powers">
-        <div class="sheet-flex-col">
-            <div class="shrinkable"><!-- Type -->
-                <select name="attr_type">
-                    <option value="mental">Mental</option>
-                    <option value="physique">Physique</option>
-                    <option value="spirituel">Spirituel</option>
-                </select>
+<div class="tabcontacts">
+    <div>
+        <h2>Contacts</h2>
+        <div>
+            <h3>Contacts</h3>
+            <div class="headings flex-col">
+                <div>Nom</div>
+                <div>Occupation ou Métier</div>
+                <div>Moyen de contact</div>
+                <div>Divers</div>
             </div>
-            <div class="half"><!-- Nom -->
-                <input type="text" name="attr_powername" placeholder="Nom du pouvoir"/>
-            </div>
-            <div><!-- Niveau -->
-                <span style="padding-left: 5px;"><strong>Niv. : </strong></span><input type="number" step="0.5" value=1 min="1" step="0.5"
-                                                                                       name="attr_powerlevel" placeholder="niveau"/>
-            </div>
-            <div><!-- Coût -->
-                <input type="number" step="0.5" min="0" placeholder="coût" value="0" name="attr_powercost" class="pp_cost"/><strong>PP</strong>
-            </div>
-            <div class="shrinkable">
-                <button type="roll" class="sheet-btRoll" title="Jet" name="jet"
-                        value="&{template:insmv}  {{accuracy=[[@{poweraccuracy}]]}} {{damage=@{powerdamage}}} {{name=@{powername}}} {{level=@{powerlevel}}} {{subtags=Pouvoir @{type}}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
-            </div>
-            <div class="shrinkable">
-                <button type="action" name="act_activate">⚡ Activer</button>
-            </div>
-            <div class="shrinkable"><!-- Défense -->
-                <label>Défense :</label><select name="attr_powerdefense" class="dtype">
-                    <option value="">Aucune</option>
-                    <option value="defense">Defense</option>
-                    <option value="foi">Foi</option>
-                    <option value="force">Force</option>
-                    <option value="volonte">Volonté</option>
-                    <option value="perception">Perception</option>
-                    <option value="agilite">Agilité</option>
-                    <option value="presence">Présence</option>
-                </select>
-            </div>
-            <div class="center"><!-- Portée -->
-                <label>Portée :</label><input name="attr_powerrange" placeholder="Vue"/>
-            </div>
-            <div class="center">
-                <label>PU :</label><input type="number" name="attr_powerdamage" value="0" placeholder="PU"/>
-            </div>
-            <div class="center">
-                <label>PR :</label><input type="number" name="attr_poweraccuracy" value="0" placeholder="PR"/>
-            </div>
-            <div class="center"><!-- Permanent -->
-                <label>Permanent :</label><input type="checkbox" name="attr_powerpermanent"/>
-            </div>
-            <div class="large">
-                <textarea rows="1" name="attr_powerdescription" class="description" placeholder="Description"/></textarea>
-            </div>
-        </div>
-    </fieldset>
-</div>
-</div>
-
-<div class='sheet-tabinventory'>
-<div>
-    <h2>Équipement</h2>
-    <div class="inventory-group">
-        <div class="flex-2col">
-            <div class="weapons">
-                <h3>Armes</h3>
-                <div class="headings flex-col">
-                    <div class="half">Description</div>
-                    <div class="">Niv.</div>
-                    <div class="">PU</div>
-                    <div class="">PR</div>
-                    <div class=""></div>
+            <fieldset class="repeating_contacts">
+                <div class="flex-col">
+                    <div><input name="attr_contactname" type="text" placeholder=""/></div>
+                    <div><input name="attr_contactjob" type="text" placeholder=""/></div>
+                    <div><input name="attr_contacthow" type="text" placeholder=""/></div>
+                    <div><input name="attr_contactmisc" type="text" placeholder=""/></div>
                 </div>
-                <fieldset class="repeating_armes">
-                    <div class="flex-col weapon">
-                        <div class="half"><input type="text" name="attr_weaponname" placeholder="Arme" /></div>
-                        <div class=""><input type="number" min="0" max="6" name="attr_weaponlevel" placeholder="Niv" /></div>
-                        <div class=""><input type="number" name="attr_weapondamage" placeholder="PU" value="0" /></div>
-                        <div class=""><input type="number" name="attr_weaponaccuracy" placeholder="PR" value="0" /></div>
-                        <div class=""><button type="roll" class="sheet-btRoll" title="Jet" name="act_rollwiththreshold"
-                                              value="&{template:insmv} {{force=[[@{force_surnaturelle}]]}} {{accuracy=[[@{weaponaccuracy}]]}} {{damage=@{weapondamage}}} {{name=@{weaponname}}} {{level=@{weaponlevel}}} {{subtags=}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Moyen,moyenne|Facile,facile|Difficile,difficile|Très difficile,très difficile}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}" />
-                        </div>
-                </fieldset>
-            </div>
-
-            <div>
-                <h3>Armures</h3>
-                <div class="headings flex-col">
-                    <div class="half">Description</div>
-                    <div class="">Protection</div>
-                </div>
-                <fieldset class="repeating_armures">
-                    <div><input name="attr_armor" type="text" /></div>
-                    <div><input name="attr_armorprotection" type="number" min="0" step="1"/></div>
-                </fieldset>
-            </div>
+            </fieldset>
         </div>
     </div>
 </div>
 
-<div>
-    <h2>Autres possessions (WIP)</h2>
-    <div class="inventory-group">
-        <div class="flex-2col">
-            <div class="weapons">
-                <h3>Armes</h3>
-                <div class="headings flex-col">
-                    <div class="half">Description</div>
-                    <div class="">Niv.</div>
-                    <div class="">PU</div>
-                    <div class="">PR</div>
-                    <div class=""></div>
-                </div>
-                <fieldset class="repeating_armes">
-                    <div class="flex-col weapon">
-                        <div class="half"><input type="text" name="attr_weaponname" placeholder="Arme" /></div>
-                        <div class=""><input type="number" min="0" max="6" name="attr_weaponlevel" placeholder="Niv" /></div>
-                        <div class=""><input type="number" name="attr_weapondamage" placeholder="PU" value="0" /></div>
-                        <div class=""><input type="number" name="attr_weaponaccuracy" placeholder="PR" value="0" /></div>
-                        <div class=""><button type="roll" class="sheet-btRoll" title="Jet" name="act_rollwiththreshold"
-                                              value="&{template:insmv} {{force=[[@{force_surnaturelle}]]}} {{accuracy=[[@{weaponaccuracy}]]}} {{damage=@{weapondamage}}} {{name=@{weaponname}}} {{level=@{weaponlevel}}} {{subtags=}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Moyen,moyenne|Facile,facile|Difficile,difficile|Très difficile,très difficile}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}" />
-                        </div>
-                </fieldset>
+<div class="tabnotes">
+    <div>
+        <h2>Notes</h2>
+        <div>
+            <div class="headings flex-col">
+                <div>Description</div>
+                <div>Note</div>
             </div>
-
-            <div>
-                <h3>Armures</h3>
-                <div class="headings flex-col">
-                    <div class="half">Description</div>
-                    <div class="">Protection</div>
-                </div>
-                <fieldset class="repeating_armures">
-                    <div><input name="attr_armor" type="text" /></div>
-                    <div><input name="attr_armorprotection" type="number" min="0" step="1"/></div>
-                </fieldset>
-            </div>
+            <fieldset class="repeating_notes">
+                <div class="flex-col">
+                    <div><input name="attr_notedescription" type="text"/></div>
+                    <div><textarea name="attr_notecontent" id="" cols="50" rows="4"></textarea></div>
+            </fieldset>
         </div>
     </div>
 </div>
-</div>
 
-<rolltemplate class="sheet-rolltemplate-insmv">
+<rolltemplate class="rolltemplate-insmv">
     <div class="container">
         <div><h3>{{name}}</h3></div>
         <div><span class="subheader">{{subtags}}{{#level}} (niv. {{level}}){{/level}}</span></div>
@@ -719,38 +769,16 @@
 
 <script type="text/worker">
     // ========== ATTRS ==========
-    on("change:force", function (eventInfo) {
-        console.log(eventInfo.previousValue);
-        console.log(eventInfo.newValue);
-
-        // Blessure Update
-    });
-
-    on("change:nature", function (eventInfo) {
-        switch(eventInfo.newValue){
-            case 'ange':
-                // Ange Update
-                break;
-            case 'demon':
-                // Blessure Update
-                break;
-            case 'hero':
-                // BLessure update
-                break;
-            case 'human':
-                // No change to BL
-                break;
-        }
-    });
-
-    // ========== SPELLS ==========
-    on("clicked:repeating_powers:activate", function () {
-        getAttrs(["repeating_powers_powercost", "pp"], function (values) {
-            setAttrs({pp: values.pp - values.repeating_powers_powercost});
+    on("change:blessure",function (eventInfo){
+        setAttrs({
+            "blessuregrave" : Math.floor(eventInfo.newValue*2),
+            "blessurefatale" : Math.floor(eventInfo.newValue*3),
+            "mortsubite" : Math.floor(eventInfo.newValue*4)
         });
     });
 
-    const buttonlist = ["tabcharacter","tabpower","tabinventory"];
+    // ========== SPELLS ==========
+    const buttonlist = ["tabcharacter","tabpower","tabinventory","tabcontacts","tabnotes"];
     buttonlist.forEach(button => {
         on(`clicked:${button}`, function() {
             setAttrs({

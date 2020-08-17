@@ -6,7 +6,7 @@
  * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md)
  */
 *, ::after, ::before {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 html {
@@ -19,11 +19,11 @@ html {
 }
 
 @-ms-viewport {
-    width: device-width
+    width: device-width;
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-    display: block
+    display: block;
 }
 
 body {
@@ -34,27 +34,32 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    background-color: #fff
+    background-color: #fff;
+}
+
+button[type="action"] {
+    margin: 0.5em;
+    border-radius: 2px;
 }
 
 [tabindex="-1"]:focus {
-    outline: 0 !important
+    outline: 0 !important;
 }
 
 hr {
     box-sizing: content-box;
     height: 0;
-    overflow: visible
+    overflow: visible;
 }
 
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
-    margin-bottom: .5rem
+    margin-bottom: .5rem;
 }
 
 p {
     margin-top: 0;
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
 }
 
 abbr[data-original-title], abbr[title] {
@@ -62,91 +67,91 @@ abbr[data-original-title], abbr[title] {
     -webkit-text-decoration: underline dotted;
     text-decoration: underline dotted;
     cursor: help;
-    border-bottom: 0
+    border-bottom: 0;
 }
 
 address {
     margin-bottom: 1rem;
     font-style: normal;
-    line-height: inherit
+    line-height: inherit;
 }
 
 dl, ol, ul {
     margin-top: 0;
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
 }
 
 ol ol, ol ul, ul ol, ul ul {
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 dt {
-    font-weight: 700
+    font-weight: 700;
 }
 
 dd {
     margin-bottom: .5rem;
-    margin-left: 0
+    margin-left: 0;
 }
 
 blockquote {
-    margin: 0 0 1rem
+    margin: 0 0 1rem;
 }
 
 dfn {
-    font-style: italic
+    font-style: italic;
 }
 
 b, strong {
-    font-weight: bolder
+    font-weight: bolder;
 }
 
 small {
-    font-size: 80%
+    font-size: 80%;
 }
 
 a {
     color: #007bff;
     text-decoration: none;
     background-color: transparent;
-    -webkit-text-decoration-skip: objects
+    -webkit-text-decoration-skip: objects;
 }
 
 a:hover {
     color: #0056b3;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 a:not([href]):not([tabindex]) {
     color: inherit;
-    text-decoration: none
+    text-decoration: none;
 }
 
 a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
     color: inherit;
-    text-decoration: none
+    text-decoration: none;
 }
 
 a:not([href]):not([tabindex]):focus {
-    outline: 0
+    outline: 0;
 }
 
 figure {
-    margin: 0 0 1rem
+    margin: 0 0 1rem;
 }
 
 img {
     vertical-align: middle;
-    border-style: none
+    border-style: none;
 }
 
 svg {
     overflow: hidden;
-    vertical-align: middle
+    vertical-align: middle;
 }
 
 table {
-    border-collapse: collapse
+    border-collapse: collapse;
 }
 
 caption {
@@ -154,70 +159,70 @@ caption {
     padding-bottom: .75rem;
     color: #6c757d;
     text-align: left;
-    caption-side: bottom
+    caption-side: bottom;
 }
 
 th {
-    text-align: inherit
+    text-align: inherit;
 }
 
-label {
+.sheet-label {
     display: inline-block;
-    margin-bottom: .5rem
+    margin-bottom: .5rem;
 }
 
 button {
-    border-radius: 0
+    border-radius: 0;
 }
 
 button:focus {
     outline: 1px dotted;
-    outline: 5px auto -webkit-focus-ring-color
+    outline: 5px auto -webkit-focus-ring-color;
 }
 
 button, input, optgroup, select, textarea {
     margin: 0;
     font-family: inherit;
     font-size: inherit;
-    line-height: inherit
+    line-height: inherit;
 }
 
 button, input {
-    overflow: visible
+    overflow: visible;
 }
 
 button, select {
-    text-transform: none
+    text-transform: none;
 }
 
 [type=reset], [type=submit], button, html [type=button] {
-    -webkit-appearance: button
+    -webkit-appearance: button;
 }
 
 [type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner, button::-moz-focus-inner {
     padding: 0;
-    border-style: none
+    border-style: none;
 }
 
 input[type=checkbox], input[type=radio] {
     box-sizing: border-box;
-    padding: 0
+    padding: 0;
 }
 
 input[type=date], input[type=datetime-local], input[type=month], input[type=time] {
-    -webkit-appearance: listbox
+    -webkit-appearance: listbox;
 }
 
 textarea {
     overflow: auto;
-    resize: vertical
+    resize: vertical;
 }
 
 fieldset {
     min-width: 0;
     padding: 0;
     margin: 0;
-    border: 0
+    border: 0;
 }
 
 legend {
@@ -229,20 +234,20 @@ legend {
     font-size: 1.5rem;
     line-height: inherit;
     color: inherit;
-    white-space: normal
+    white-space: normal;
 }
 
 [type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
-    height: auto
+    height: auto;
 }
 
 [type=search] {
     outline-offset: -2px;
-    -webkit-appearance: none
+    -webkit-appearance: none;
 }
 
 [type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
-    -webkit-appearance: none
+    -webkit-appearance: none;
 }
 
 h2 {
@@ -250,19 +255,24 @@ h2 {
 }
 
 
-div.sheet-tum{
-    margin:1em;
+div.sheet-tum {
+    margin: 1em;
     background-image: url("https://cdn.discordapp.com/attachments/235031322047807489/741766950828507336/unknown.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     width: auto;
-    height:10em;
+    height: 10em;
 }
 
 /* Layout des inputs de nombres */
+
+div.sheet-attributs input[type="number"] {
+    width: 4em;
+}
+
 div.sheet-attributs input[type="number"], div.sheet-talents input[type="number"], .power input[type="number"] {
-    width: 15em;
+    width: 4em;
     text-align: center;
 }
 
@@ -333,23 +343,26 @@ div.sheet-flex-col div {
     text-align: center;
 }
 
-.sheet-power label{
+.sheet-power label {
     text-align: center;
 }
 
-.sheet-power select{
-    width:10em;
+.sheet-power select {
+    width: 10em;
 }
-
-
-
 
 .sheet-flex-2col {
     display: flex;
     flex-flow: row wrap;
+    width: 100%;
+    margin: 0 auto;
 }
-.sheet-weapons {
-    flex-basis: 25%;
+
+.sheet-flex-subcol{
+    display: inline-block;
+    width: 50%;
+    margin: 0 auto;
+    padding: 1em;
 }
 
 
@@ -361,14 +374,14 @@ div.sheet-flex-col div {
 }
 
 .sheet-rolltemplate-insmv .sheet-crit-angel::before {
-    content: "✝   ";
+    content: "✝";
     font-size: 1em;
     color: #007bff;
     text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
 }
 
 .sheet-rolltemplate-insmv .sheet-crit-angel::after {
-    content: "   ✝";
+    content: "✝";
     font-size: 1em;
     color: #007bff;
     text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
@@ -384,31 +397,54 @@ div.sheet-flex-col div {
 }
 
 .sheet-rolltemplate-insmv .sheet-crit-demon::before {
-    content: "⛧   ";
+    content: "⛧";
     color: #a01818;
     font-size: 1em;
     text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
 }
 
 .sheet-rolltemplate-insmv .sheet-crit-demon::after {
-    content: "   ⛧";
+    content: "⛧";
     color: #a01818;
     font-size: 1em;
     text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
 }
 
 
-/* TABS */
+.sheet-half-container {
+    display: flex;
+    flex-direction: row;
+}
 
+.sheet-flex-br {
+    width: 100%;
+    flex-basis: 100%;
+    height: 0.5em;
+}
+
+.sheet-half {
+    margin: 0.5em auto;
+    padding: 0.5em;
+}
+
+.sheet-half * {
+    padding: 0.25em;
+}
+
+/* TABS */
 .sheet-tabcharacter,
 .sheet-tabpower,
-.sheet-tabinventory {
+.sheet-tabinventory,
+.sheet-tabcontacts,
+.sheet-tabnotes {
     display: none;
 }
 
-/* show the selected tab */
+/*!* show the selected tab *!*/
 .sheet-tabstoggle[value="tabcharacter"] ~ div.sheet-tabcharacter,
 .sheet-tabstoggle[value="tabpower"] ~ div.sheet-tabpower,
-.sheet-tabstoggle[value="tabinventory"] ~ div.sheet-tabinventory {
+.sheet-tabstoggle[value="tabinventory"] ~ div.sheet-tabinventory,
+.sheet-tabstoggle[value="tabcontacts"] ~ div.sheet-tabcontacts,
+.sheet-tabstoggle[value="tabnotes"] ~ div.sheet-tabnotes {
     display: block;
 }
