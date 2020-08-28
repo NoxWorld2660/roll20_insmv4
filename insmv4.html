@@ -362,25 +362,25 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label class="label">Cuture générale</label></td>
+                    <td><label class="label">Culture générale</label></td>
                     <td><input type="number" step="0.5" name="attr_cuturegenerale" min="0"></td>
                     <td></td>
                     <td>
                         <button type="roll" class="btRoll" title="Jet" name="jet"
-                                value="&{template:insmv} {{name=Cuture }} {{level=@{cuturegenerale}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                                value="&{template:insmv} {{name=Culture }} {{level=@{cuturegenerale}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="label">
-                            <label class="label">Cuture générale spé.</label><input name="attr_culturegeneralespename" type="text">
+                            <label class="label">Culture générale spé.</label><input name="attr_culturegeneralespename" type="text">
                         </div>
                     </td>
                     <td><input type="number" step="0.5" name="attr_culturegeneralespe" min="0"></td>
                     <td></td>
                     <td>
                         <button type="roll" class="btRoll" title="Jet" name="jet"
-                                value="&{template:insmv} {{name=Cuture générale Spé. (@{culturegeneralespename})}} {{level=@{culturegeneralespe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
+                                value="&{template:insmv} {{name=Culture générale Spé. (@{culturegeneralespename})}} {{level=@{culturegeneralespe}}} {{subtags=Talent Secondaires}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{difficulty=?{Difficulté|Difficile,difficile|Facile,facile|Très difficile,très difficile|Incroyable,incroyable|Légendaire,légendaire}}} {{offset=[[?{De combien de colonnes voulez-vous décaler ?|0}]]}}"/>
                     </td>
                 </tr>
                 <tr>
@@ -732,7 +732,7 @@
     </div>
 </div>
 
-<rolltemplate class="rolltemplate-insmv">
+<rolltemplate class="sheet-rolltemplate-insmv">
     <div class="container">
         <div><h3>{{name}}</h3></div>
         <div><span class="subheader">{{subtags}}{{#level}} (niv. {{level}}){{/level}}</span></div>
