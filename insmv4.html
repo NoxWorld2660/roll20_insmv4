@@ -683,10 +683,12 @@
         <div class="other_stuff">
             <div class="headings sheet-flex-col">
                 <div>Description</div>
+                <div>Quantité</div>
             </div>
-            <fieldset class="repeating_other_stuff">
+            <fieldset class="repeating_otherstuff">
                 <div class="flex-col">
-                    <div><input type="text" name="attr_otherrstuffname" size="100"/></div>
+                    <div><input type="text" name="attr_otherrstuffname" size="200"/></div>
+                    <div><input type="text" name="attr_otherstuffqtity" size="50"/></div>
             </fieldset>
         </div>
     </div>
@@ -778,7 +780,8 @@
     });
 
     // ========== SPELLS ==========
-    const buttonlist = ["tabcharacter","tabpower","tabinventory","tabcontacts","tabnotes"];
+    const buttonlist = ["tabcharacter","tabpower","tab
+    y","tabcontacts","tabnotes"];
     buttonlist.forEach(button => {
         on(`clicked:${button}`, function() {
             setAttrs({
